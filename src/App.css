@@ -1,0 +1,128 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
+/* Regular 400, Bold 700, Italic 400 */
+
+/* General and apply all */
+
+/* Fonts and headings */
+
+h1,
+p,
+.btn {
+  margin: 10px 10px !important;
+}
+
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px !important;
+  margin: 10px;
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px !important;
+  margin: 5px 10px !important;
+  margin-bottom: 0px !important;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px !important;
+  margin: 5px 10px !important;
+  margin-bottom: 0px !important;
+}
+
+.Dateimported {
+  font-size: 8px !important;
+}
+
+/* Other spacing */
+
+.Sidenotes {
+  padding: 50px 70px;
+}
+
+.Mainnotes,
+.Notessaved {
+  padding: 70px;
+}
+
+.Sidenotes .btn,
+.Mainnotes .btn {
+  margin: 10px;
+  width: 200px;
+  height: 50px;
+}
+
+/* Individual */
+
+.Sidenotes {
+  background: #d5d5d5;
+}
+
+.Notessaved {
+  background: rgb(235, 235, 235);
+}
+
+/* Columns */
+
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.right-column {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40%;
+  z-index: 1100;
+}
+
+.left-column {
+  width: 50%;
+}
+
+.Inputarea {
+  height: 100%;
+  width: 100%;
+  margin: 20px 0px;
+  vertical-align: top;
+  padding-top: 8px;
+}
+
+.Savednotes {
+  padding: 25px 25px;
+  background-color: rgb(33, 33, 33);
+  border-radius: 10px;
+  margin: 25px 0px;
+  color: white;
+}
+
+.btnspacing {
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+  font-size: 8px !important;
+}
+
+.Inputboxes,
+.Mynote {
+  margin-top: 30px !important;
+}
+
+.active {
+  background-color: rgb(85, 85, 85);
+}
+
+.Mynote p {
+  font-size: 18px !important;
+}
+
+.Mynote {
+  background: #dddddd;
+  padding: 50px;
+  border-radius: 10px;
+}
