@@ -9,13 +9,22 @@ import Mainnotes from "./Mainnotes";
 import Notessaved from "./Notessaved";
 
 function App() {
-  const [notes, setNotes] = useState(JSON.parse(localStorage.notes) || []);
+  const [notes, setNotes] = useState(() => {
+    const saved = localStorage.getItem("notes");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const [activeNote, setActiveNote] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
+
+  useEffect(() => {
+    if (notes.length > 0) setActiveNote(notes[0].id);
+  }, [notes]);
+
+  const [showWelcome, setShowWelcome] = useState(true);
 
   function addNewNotes() {
     const newNote = {
@@ -25,7 +34,12 @@ function App() {
       date: Date.now(),
     };
 
-    document.querySelector(".savedTitle").style.display = "block";
+    const button = document.querySelector(".btn-dark");
+
+    button.innerHTML = "Saved!";
+    setTimeout(() => {
+      button.innerHTML = "Add";
+    }, 2000);
 
     setNotes([...notes, newNote]);
     setActiveNote(newNote.id);
@@ -51,10 +65,27 @@ function App() {
     return notes.find((note) => note.id === activeNote);
   };
 
+  useEffect(() => {
+    setTimeout(() => setShowWelcome(false), 1000);
+  }, []);
+
+  if (showWelcome) {
+    return (
+      <div className="WelcomeScreen">
+        <div className="Welcome">Welcome! Let's make a new note today</div>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
-      <Mainnotes activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
+      <Mainnotes
+        activeNote={getActiveNote()}
+        onUpdateNote={onUpdateNote}
+        showWelcome={showWelcome}
+      />
       <Notessaved
+        showWelcome={showWelcome}
         notes={notes}
         addNewNotes={addNewNotes}
         onDeleteNote={onDeleteNote}

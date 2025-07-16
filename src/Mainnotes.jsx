@@ -1,17 +1,20 @@
-function Mainnotes({ activeNote, onUpdateNote }) {
+function Mainnotes({ activeNote, onUpdateNote, showWelcome }) {
   const onEditField = (key, value) => {
     onUpdateNote({
       ...activeNote,
       [key]: value,
       date: Date.now(),
     });
+
+    document
+      .querySelector(".right-column")
+      .scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (!activeNote) return <div className="noNotesBox"><div className="noNotes">Make a new note</div></div>;
+  if (!activeNote) return null;
 
   return (
     <div className="Mainnotes left-column">
-      <h1>New Note</h1>
       <div className="Inputboxes">
         <input
           type="text"
@@ -26,11 +29,6 @@ function Mainnotes({ activeNote, onUpdateNote }) {
           value={activeNote.paragraph}
           onChange={(e) => onEditField("paragraph", e.target.value)}
         ></textarea>
-      </div>
-
-      <div className="Mynote">
-        <h1>{activeNote.title}</h1>
-        <p>{activeNote.paragraph}</p>
       </div>
     </div>
   );

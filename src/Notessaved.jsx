@@ -4,14 +4,12 @@ function Notessaved({
   onDeleteNote,
   activeNote,
   setActiveNote,
+  showWelcome,
 }) {
-
-const sortedNotes = notes.sort((a,b) => b.date - a.date);
+  const sortedNotes = notes.sort((a, b) => b.date - a.date);
 
   return (
     <div className="Notessaved right-column">
-     <h1 className="savedTitle">Saved</h1>
-
       {notes.map((note, index) => (
         <div
           className={`Savednotes ${note.id === activeNote && "active"}`}
@@ -37,8 +35,9 @@ const sortedNotes = notes.sort((a,b) => b.date - a.date);
 
       <div className="Sidenotes fixed-bottom">
         <button className="btn btn-dark" onClick={addNewNotes}>
-          Add
+          Add new note
         </button>
+        <span className="savedTitle">Saved</span>
       </div>
     </div>
   );

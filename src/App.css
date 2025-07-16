@@ -20,8 +20,8 @@ h1 {
 
 h2 {
   font-family: "Roboto", sans-serif;
-  font-size: 14px !important;
-  margin: 5px 10px !important;
+  font-size: 16px !important;
+  margin: 8px 10px !important;
   margin-bottom: 0px !important;
 }
 
@@ -44,24 +44,22 @@ p {
 
 .Mainnotes,
 .Notessaved {
-  padding: 70px;
+  padding: 20px 50px;
 }
 
 .Sidenotes .btn,
 .Mainnotes .btn {
   margin: 10px;
-  width: 200px;
+  width: 100%;
   height: 50px;
+  padding: 0px;
+  margin: 0px !important;
 }
 
 /* Individual */
 
-.Sidenotes {
-  background: #d5d5d5;
-}
-
 .Notessaved {
-  background: rgb(235, 235, 235);
+  background: rgb(220, 220, 220);
 }
 
 /* Columns */
@@ -71,6 +69,8 @@ p {
   bottom: 0;
   width: 60%;
   z-index: 999;
+  display: inline-flex;
+  justify-content: center;
 }
 
 .right-column {
@@ -80,7 +80,7 @@ p {
   height: 100%;
   width: 40%;
   z-index: 1100;
-   overflow-y: auto;
+  overflow-y: auto;
 }
 
 .left-column {
@@ -115,7 +115,8 @@ p {
 }
 
 .active {
-  background-color: rgb(85, 85, 85);
+  background-color: rgb(255, 255, 255);
+  color: black;
 }
 
 .Mynote p {
@@ -129,25 +130,64 @@ p {
 }
 
 .noNotesBox {
-  display: flex;
-  justify-content: left;
-  padding: 0px 100px;
-  align-items: left;
-  height: 100%;
-  width: 60%;
-
+  text-align: center;
 }
 
 .noNotes {
-    position: fixed;
-    top: 35%;
-
+  position: fixed;
+  top: 35%;
+  width: 60%;
 }
 
 .App {
- width: 100%;
+  width: 100%;
 }
 
 .savedTitle {
   display: none;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.WelcomeScreen {
+  width: 100%;
+  height: 100vh;
+  background: rgb(254, 254, 254);
+  text-align: center;
+  opacity: 0.8;
+  animation: fadeOut 1s ease 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.Welcome {
+  font-size: 28px;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.form-control {
+  font-size: 22px !important;
+  border: var(--bs-border-width) solid #ffffff !important;
+}
+
+.Inputarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #afafaf !important;
+  border-color: #ccc !important;
+}
+
+.btn-light {
+  background-color: rgb(226, 226, 226) !important;
+  border: rgb(171, 171, 171) !important;
 }
