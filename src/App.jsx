@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import uuid from "react-uuid";
 
 import "./App.css";
@@ -9,8 +9,13 @@ import Mainnotes from "./Mainnotes";
 import Notessaved from "./Notessaved";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState(JSON.parse(localStorage.notes) || []);
+
   const [activeNote, setActiveNote] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   function addNewNotes() {
     const newNote = {
@@ -19,6 +24,8 @@ function App() {
       paragraph: "paragraph",
       date: Date.now(),
     };
+
+    document.querySelector(".savedTitle").style.display = "block";
 
     setNotes([...notes, newNote]);
     setActiveNote(newNote.id);

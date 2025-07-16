@@ -5,9 +5,12 @@ function Notessaved({
   activeNote,
   setActiveNote,
 }) {
+
+const sortedNotes = notes.sort((a,b) => b.date - a.date);
+
   return (
     <div className="Notessaved right-column">
-      <h1>Saved</h1>
+     <h1 className="savedTitle">Saved</h1>
 
       {notes.map((note, index) => (
         <div

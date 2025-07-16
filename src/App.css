@@ -69,7 +69,7 @@ p {
 .fixed-bottom {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 60%;
   z-index: 999;
 }
 
@@ -80,6 +80,7 @@ p {
   height: 100%;
   width: 40%;
   z-index: 1100;
+   overflow-y: auto;
 }
 
 .left-column {
@@ -125,4 +126,28 @@ p {
   background: #dddddd;
   padding: 50px;
   border-radius: 10px;
+}
+
+.noNotesBox {
+  display: flex;
+  justify-content: left;
+  padding: 0px 100px;
+  align-items: left;
+  height: 100%;
+  width: 60%;
+
+}
+
+.noNotes {
+    position: fixed;
+    top: 35%;
+
+}
+
+.App {
+ width: 100%;
+}
+
+.savedTitle {
+  display: none;
 }

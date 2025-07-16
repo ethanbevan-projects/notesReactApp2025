@@ -7,7 +7,7 @@ function Mainnotes({ activeNote, onUpdateNote }) {
     });
   };
 
-  if (!activeNote) return <div>No note selected</div>;
+  if (!activeNote) return <div className="noNotesBox"><div className="noNotes">Make a new note</div></div>;
 
   return (
     <div className="Mainnotes left-column">
