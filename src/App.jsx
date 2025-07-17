@@ -7,6 +7,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import Mainnotes from "./Mainnotes";
 import Notessaved from "./Notessaved";
+import Nav from "./Nav";
 
 function App() {
   const [notes, setNotes] = useState(() => {
@@ -21,16 +22,18 @@ function App() {
   }, [notes]);
 
   useEffect(() => {
-    if (notes.length > 0) setActiveNote(notes[0].id);
-  }, [notes]);
+    if (notes.length > 0 && !activeNote) {
+      setActiveNote(notes[0].id);
+    }
+  }, [notes, activeNote]);
 
   const [showWelcome, setShowWelcome] = useState(true);
 
   function addNewNotes() {
     const newNote = {
       id: uuid(),
-      title: "title",
-      paragraph: "paragraph",
+      title: "",
+      paragraph: "",
       date: Date.now(),
     };
 
@@ -41,7 +44,7 @@ function App() {
       button.innerHTML = "Add";
     }, 2000);
 
-    setNotes([...notes, newNote]);
+    setNotes((prevNotes) => [...prevNotes, newNote]);
     setActiveNote(newNote.id);
   }
 
@@ -78,21 +81,24 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Mainnotes
-        activeNote={getActiveNote()}
-        onUpdateNote={onUpdateNote}
-        showWelcome={showWelcome}
-      />
-      <Notessaved
-        showWelcome={showWelcome}
-        notes={notes}
-        addNewNotes={addNewNotes}
-        onDeleteNote={onDeleteNote}
-        setActiveNote={setActiveNote}
-        activeNote={activeNote}
-      />
-    </div>
+    <>
+      <div className="App">
+        <Nav />
+        <Mainnotes
+          activeNote={getActiveNote()}
+          onUpdateNote={onUpdateNote}
+          showWelcome={showWelcome}
+        />
+        <Notessaved
+          showWelcome={showWelcome}
+          notes={notes}
+          addNewNotes={addNewNotes}
+          onDeleteNote={onDeleteNote}
+          setActiveNote={setActiveNote}
+          activeNote={activeNote}
+        />
+      </div>
+    </>
   );
 }
 

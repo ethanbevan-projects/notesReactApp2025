@@ -13,13 +13,13 @@ p,
 }
 
 h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
   font-size: 22px !important;
   margin: 10px;
 }
 
 h2 {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif !important;
   font-size: 16px !important;
   margin: 8px 10px !important;
   margin-bottom: 0px !important;
@@ -42,9 +42,12 @@ p {
   padding: 50px 70px;
 }
 
-.Mainnotes,
-.Notessaved {
+.Mainnotes {
   padding: 20px 50px;
+}
+
+.Notessaved {
+  padding: 24px 50px 20px 0px;
 }
 
 .Sidenotes .btn,
@@ -59,7 +62,7 @@ p {
 /* Individual */
 
 .Notessaved {
-  background: rgb(220, 220, 220);
+  background: #ffffff00;
 }
 
 /* Columns */
@@ -81,10 +84,11 @@ p {
   width: 40%;
   z-index: 1100;
   overflow-y: auto;
+  margin-top: 52px;
 }
 
 .left-column {
-  width: 50%;
+  width: 60%;
 }
 
 .Inputarea {
@@ -115,7 +119,7 @@ p {
 }
 
 .active {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(229 229 229);
   color: black;
 }
 
@@ -177,8 +181,38 @@ p {
 }
 
 .form-control {
-  font-size: 22px !important;
-  border: var(--bs-border-width) solid #ffffff !important;
+  border: 1px solid #95959578 !important;
+  color: black !important;
+  background-color: #ffffff !important;
+  line-height: 1.5 !important;
+}
+
+textarea.form-control {
+  height: 62vh !important;
+}
+
+@media (max-height: 740px) {
+  textarea.form-control {
+    height: 58vh !important;
+  }
+}
+
+@media (max-height: 600px) {
+  textarea.form-control {
+    height: 48vh !important;
+  }
+}
+
+@media (max-height: 480px) {
+  textarea.form-control {
+    height: 40vh !important;
+  }
+}
+
+@media (max-height: 380px) {
+  textarea.form-control {
+    height: 15vh !important;
+  }
 }
 
 .Inputarea:focus {
@@ -188,6 +222,95 @@ p {
 }
 
 .btn-light {
-  background-color: rgb(226, 226, 226) !important;
+  background-color: rgb(255, 255, 255) !important;
   border: rgb(171, 171, 171) !important;
+}
+
+.titleDefault {
+  font-size: 22px !important;
+}
+
+.paragraphDefault {
+  font-size: 16px !important;
+}
+
+.WelcomeTitle {
+  width: 60%;
+  margin-top: 100px !important;
+  align-content: center;
+  text-align: center;
+}
+
+.WelcomeSaved {
+  margin-top: 132px !important;
+  text-align: center;
+  font-size: 16px !important;
+  font-style: italic;
+}
+
+.AppHeader {
+  background: #222;
+  color: white;
+  padding: 10px 10px 15px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2000;
+  width: 100%;
+}
+
+.hamburger-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0px 10px 0px 0px;
+  cursor: pointer;
+  color: white;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 3100;
+}
+
+.FullscreenMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+  z-index: 3000;
+}
+
+@media (max-width: 845px) {
+  .left-column {
+    width: 100%;
+  }
+  .right-column {
+    position: relative;
+    width: 100%;
+  }
+  .WelcomeTitle {
+    width: 100%;
+    padding: 0px;
+    margin: 100px 0px !important;
+  }
+  .fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .Notessaved {
+    padding: 0px;
+  }
 }
