@@ -1,8 +1,25 @@
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
+import Notessaved from "./Notessaved";
 
-function Nav() {
-  const [showMenu, setShowMenu] = useState(false);
+function Nav({
+  notes,
+  addNewNotes,
+  onDeleteNote,
+  activeNote,
+  setActiveNote,
+  showWelcome,
+  showNoteButton,
+  showMenu,
+  setShowMenu,
+}) {
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [showMenu]);
 
   return (
     <>
@@ -12,13 +29,23 @@ function Nav() {
           className="hamburger-icon"
           onClick={() => setShowMenu(!showMenu)}
         />
-        <h2>Notes App</h2>
+        <p className="ethanNotesAppTitle">Ethan notes app 2025</p>
+        <img src="./Images/logo.png" style={{ width: "30px" }}></img>
       </header>
       {showMenu && (
         <div className="FullscreenMenu">
           <button className="close-button" onClick={() => setShowMenu(false)}>
             ✕
           </button>
+          <Notessaved
+            showWelcome={showWelcome}
+            notes={notes}
+            addNewNotes={addNewNotes}
+            onDeleteNote={onDeleteNote}
+            setActiveNote={setActiveNote}
+            activeNote={activeNote}
+            showNoteButton={showNoteButton}
+          />
         </div>
       )}
     </>

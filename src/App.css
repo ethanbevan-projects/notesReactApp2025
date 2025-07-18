@@ -33,7 +33,7 @@ p {
 }
 
 .Dateimported {
-  font-size: 8px !important;
+  font-size: 10px !important;
 }
 
 /* Other spacing */
@@ -47,7 +47,7 @@ p {
 }
 
 .Notessaved {
-  padding: 24px 50px 20px 0px;
+  padding: 0px 50px 20px 0px;
 }
 
 .Sidenotes .btn,
@@ -78,13 +78,30 @@ p {
 
 .right-column {
   position: fixed;
+  top: 30px;
+  right: 0;
+  width: 40%;
+  height: calc(90vh - 82px);
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 75px;
+  overscroll-behavior: contain;
+  margin-top: 75px !important;
+}
+
+.Savednotes {
+  scroll-snap-align: start;
+}
+
+.right-columnWelcome {
+  position: fixed;
   top: 0;
   right: 0;
   height: 100%;
   width: 40%;
   z-index: 1100;
   overflow-y: auto;
-  margin-top: 52px;
+  margin-top: 0px;
 }
 
 .left-column {
@@ -103,7 +120,7 @@ p {
   padding: 25px 25px;
   background-color: rgb(33, 33, 33);
   border-radius: 10px;
-  margin: 25px 0px;
+  margin: 0px 0px 25px 0px;
   color: white;
 }
 
@@ -181,11 +198,18 @@ p {
 }
 
 .form-control {
-  border: 1px solid #95959578 !important;
+  border: none !important;
   color: black !important;
   background-color: #ffffff !important;
   line-height: 1.5 !important;
 }
+
+/* input.form-control {
+  border: none !important;
+  border-bottom: 1px solid #bfbfbf !important;
+  outline: none !important;
+  border-radius: 0px !important;
+} */
 
 textarea.form-control {
   height: 62vh !important;
@@ -193,7 +217,7 @@ textarea.form-control {
 
 @media (max-height: 740px) {
   textarea.form-control {
-    height: 58vh !important;
+    height: 55vh !important;
   }
 }
 
@@ -203,9 +227,9 @@ textarea.form-control {
   }
 }
 
-@media (max-height: 480px) {
+@media (max-height: 550px) {
   textarea.form-control {
-    height: 40vh !important;
+    height: 32vh !important;
   }
 }
 
@@ -216,9 +240,11 @@ textarea.form-control {
 }
 
 .Inputarea:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px #afafaf !important;
-  border-color: #ccc !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-bottom: 1px solid #dedede !important;
+  border-radius: 0%;
 }
 
 .btn-light {
@@ -273,10 +299,10 @@ textarea.form-control {
 .close-button {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 30px;
   background: none;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border: none;
   cursor: pointer;
   z-index: 3100;
@@ -289,14 +315,23 @@ textarea.form-control {
   height: 100vh;
   width: 100vw;
   background: black;
-  z-index: 3000;
+  overflow-y: auto; /* enable scroll inside menu */
+  z-index: 9999;
 }
 
+/* Iphone */
 @media (max-width: 845px) {
   .left-column {
     width: 100%;
   }
   .right-column {
+    top: 0px;
+    right: 0;
+    height: 100%;
+    overflow-y: unset;
+    scroll-snap-type: y mandatory;
+    margin-top: 30px;
+    padding: 30px !important;
     position: relative;
     width: 100%;
   }
@@ -312,5 +347,25 @@ textarea.form-control {
   }
   .Notessaved {
     padding: 0px;
+    margin-top: 52px !important;
   }
+
+  .WelcomeSaved {
+    display: none;
+  }
+
+  .NoMarginmobile {
+    margin-top: 52px !important;
+  }
+}
+
+.ethanNotesAppTitle {
+  position: absolute;
+  left: 10px;
+  font-style: italic;
+  top: 50%;
+  transform: translateY(-75%);
+  margin: 0px 10px 0px 0px;
+  cursor: pointer;
+  color: #989898;
 }

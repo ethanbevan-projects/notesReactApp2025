@@ -27,6 +27,29 @@ function App() {
     }
   }, [notes, activeNote]);
 
+  const [showNoteButton, setShowNoteButton] = useState(true);
+
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      if (showMenu) {
+        setShowNoteButton(false);
+      } else if (window.scrollY < 100) {
+        setShowNoteButton(true);
+      } else {
+        setShowNoteButton(false);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    // Also run once to sync on menu toggle without scroll
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [showMenu]);
+
   const [showWelcome, setShowWelcome] = useState(true);
 
   function addNewNotes() {
@@ -83,7 +106,17 @@ function App() {
   return (
     <>
       <div className="App">
-        <Nav />
+        <Nav
+          showWelcome={showWelcome}
+          notes={notes}
+          addNewNotes={addNewNotes}
+          onDeleteNote={onDeleteNote}
+          setActiveNote={setActiveNote}
+          activeNote={activeNote}
+          showNoteButton={showNoteButton}
+          showMenu={showMenu}
+          setShowMenu={setShowMenu}
+        />
         <Mainnotes
           activeNote={getActiveNote()}
           onUpdateNote={onUpdateNote}
@@ -96,6 +129,9 @@ function App() {
           onDeleteNote={onDeleteNote}
           setActiveNote={setActiveNote}
           activeNote={activeNote}
+          showNoteButton={showNoteButton}
+          showMenu={showMenu}
+          setShowMenu={setShowMenu}
         />
       </div>
     </>

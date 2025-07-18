@@ -21,7 +21,7 @@ function Mainnotes({ activeNote, onUpdateNote, showWelcome }) {
   if (!activeNote)
     return (
       <div className="WelcomeDiv">
-        <h1 className="WelcomeTitle">Welcome add a new note below</h1>
+        <h1 className="WelcomeTitle">Add a new note below</h1>
       </div>
     );
 
