@@ -30,7 +30,7 @@ function Nav({
           onClick={() => setShowMenu(!showMenu)}
         />
         <p className="ethanNotesAppTitle">Ethan notes app 2025</p>
-        <img src="./Images/logo.png" style={{ width: "30px" }}></img>
+        <img src="/notesReactApp2025/logo.png" style={{ width: "30px" }}></img>
       </header>
       {showMenu && (
         <div className="FullscreenMenu">
